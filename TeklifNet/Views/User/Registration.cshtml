@@ -1,0 +1,202 @@
+﻿@model TeklifNet.Models.Registration
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = null;
+
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" lang="tr" />
+    <title>MUTABAKATCIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/assets/js/modernizr.min.js"></script>
+
+</head>
+<body>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+
+    @*<div class="wrapper">*@
+
+    <div class="container-fluid">
+
+        <!-- Form row -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-box  m-t-15">
+
+                    @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+                    {
+                        if (ViewBag.Message != null)
+                        {
+                            <h4 class="m-t-0 header-title">
+                                <a href="index.html" class="logo">
+                                    <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                </a><b>MUTABAKATCIM</b>
+                            </h4>
+                            <p class="text-success">
+                                @ViewBag.Message
+                            </p>
+                        }
+                    }
+                    else
+                    {
+
+                        using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            if (ViewBag.Message != null)
+                            {
+                                <h4 class="m-t-0 header-title">
+                                    <a href="index.html" class="logo">
+                                        <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                    </a><b>MUTABAKATCIM</b>
+                                </h4>
+                                <p class="text-muted m-b-6 m-t-0 font-13">
+                                    Lütfen <strong> Kullanıcı Hesabı Oluşturunuz</strong>
+                                </p>
+                                <p class="text-danger m-b-10">
+                                    Hata!  @ViewBag.Message
+                                </p>
+
+                            }
+                            else
+                            {
+                                <h4 class="m-t-0 header-title">
+                                    <a href="index.html" class="logo">
+                                        <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                    </a><b>MUTABAKATCIM</b>
+                                </h4>
+                                <p class="text-muted m-b-30 font-13">
+                                    Lütfen <strong>Kullanıcı Hesabı Oluşturunuz</strong>
+                                </p>
+                            }
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label " for="email">Email * </label>
+                                        @Html.EditorFor(model => model.MAIL, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.MAIL, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label " for="userName2"> Kullanıcı Adı * </label>
+                                        @Html.EditorFor(model => model.KULL_ADI, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.KULL_ADI, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="password"> Şifre *</label>
+                                        @Html.EditorFor(model => model.SIFRE, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIFRE, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="confirm2"> Şifre Onayı *</label>
+                                        @Html.EditorFor(model => model.SIFREONAY, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIFREONAY, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label class="control-label" for="CompanyTitle"> Şirket Ünvanı *</label>
+                                        @Html.EditorFor(model => model.SIRKET_UNVANI, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_UNVANI, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label " for="TxOffice"> Vergi Dairesi *</label>
+                                        @Html.EditorFor(model => model.SIRKET_VERGIDAIRESI, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_VERGIDAIRESI, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="TaxNumber"> Vergi Numarası *</label>
+                                        @Html.EditorFor(model => model.SIRKET_VERGINUMARASI, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_VERGINUMARASI, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label " for="FaxNumber"> Fax Numarası *</label>
+                                        @Html.EditorFor(model => model.SIRKET_FAX, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_FAX, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-10">
+                                        <label class="control-label" for="Address"> Adres *</label>
+                                        @Html.EditorFor(model => model.SIRKET_ADRES, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_ADRES, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="control-label" for="PhoneNumber"> Telefon Numarası *</label>
+                                        @Html.EditorFor(model => model.SIRKET_GSM, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_GSM, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label class="control-label" for="Country"> İl *</label>
+                                        @Html.EditorFor(model => model.SIRKET_IL, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_IL, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label " for="City"> İlçe *</label>
+                                        @Html.EditorFor(model => model.SIRKET_ILCE, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_ILCE, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label " for="State"> Şirket Mail *</label>
+                                        @Html.EditorFor(model => model.SIRKET_MAIL, new { htmlAttributes = new { @class = "form-control", @required = " " } })
+                                        @Html.ValidationMessageFor(model => model.SIRKET_MAIL, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group text-center m-t-20">
+                                    @*<div class="col-12">*@
+                                        <button class="btn btn-success btn-block text-uppercase waves-effect waves-light"
+                                                type="submit">
+                                           Kayıt Ol
+                                        </button>
+                                    @*</div>*@
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <small>Zaten bir kullanıcı hesabım var</small> -
+                                        <a href="javascript:void(0)" id="link-register-login"><small>@Html.ActionLink("Giriş Yap", "Login", "User")</small></a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+    </div> <!-- end container -->
+    @*</div>*@
+    <!-- end wrapper -->
+    <!-- jQuery  -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/jquery.core.js"></script>
+    <script src="~/assets/js/jquery.app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+﻿@{
+    ViewBag.Title = "Cari Bilgileri";
+}
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group pull-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">e-teklif.Net</a></li>
+                        <li class="breadcrumb-item"><a href="#">Cari Bilgileri</a></li>
+                        @*<li class="breadcrumb-item active">@Deneme.Resource.CurrentInformationTemplate</li>*@
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <a class="btn btn-success" style="margin-bottom:10px;" onclick="PopupForm('@Url.Action("AddOrEdit_Customer","Customer")')"><i class="fa fa-plus"></i> Ekle </a>
+    <table id="Customer" class="display nowrap table table-striped table-bordered" style="width:100%;">
+        <thead>
+            <tr>
+                <th data-priority="2">Cari Kodu</th>
+                <th data-priority="3">Cari Adı</th>
+                <th>Tc Kimlik No</th>
+                <th>Vergi Dairesi</th>
+                <th>Vergi Numarası</th>
+                <th>İş Tel.</th>
+                <th>Cep Tel</th>
+                <th>E-mail</th>
+                <th>Fax</th>
+                <th>Web Adresi</th>
+                <th>İl</th>
+                <th>İlçe</th>
+                <th>Adres</th>
+                <th>İskonto Oranı</th>
+                <th>Kayıt Tarihi</th>
+                <th>Kayıt Yapan Kullanıcı</th>
+                <th>Düzeltme Tarihi</th>
+                <th>Düzeltme Yapan Kullanıcı</th>
+                <th data-priority="1"></th>
+            </tr>
+        </thead>
+    </table>
+    @section scripts{
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            dataTable = $("#Customer").DataTable({
+
+                responsive: {
+                    details: {
+                        renderer: function (api, rowIdx, columns) {
+                            var data = $.map(columns, function (col, i) {
+                                return col.hidden ?
+                                    '<tr data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                    '<td>' + col.title + ':' + ' </td> ' +
+                                    '<td>' + col.data + ' </td>' +
+                                    '</tr>' :
+                                    '';
+                            }).join('');
+
+                            return data ?
+                                $('<table/>').append(data) :
+                                false;
+                        }
+                    }
+                },
+                colReorder: true,
+                "ajax": {
+                    "url": "/Customer/Show_Customer/",
+                    "type": "GET",
+                    "datatype": "json",
+                    "style":"margin-left:50px"
+                },
+                "columns": [
+                    { "data": "CARI_KODU" },
+                    { "data": "CARI_ISIM" },
+                    { "data": "TCKIMLIKNO" },
+                    { "data": "VERGI_DAIRESI" },
+                    { "data": "VERGI_NUMARASI" },
+                    { "data": "CARI_TEL" },
+                    { "data": "CARI_GSM" },
+                    { "data": "EMAIL" },
+                    { "data": "FAX" },
+                    { "data": "WEB" },
+                    { "data": "CARI_IL" },
+                    { "data": "CARI_ILCE" },
+                    { "data": "CARI_ADRES" },
+                    { "data": "ISKONTO_ORANI" },                           
+                    { "data": "KAYITTARIHI" },
+                    { "data": "KAYITYAPANKULL" },
+                    { "data": "DUZELTMETARIHI" },
+                    { "data": "DUZELTMEYAPANKULL" },
+                    {"data":"CARI_ID" , "render" : function (data) {
+                        return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit_Customer", "Customer")/" + data + "')><i class='fa fa-pencil'></i> Düzenle </a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete("+data+")><i class='fa fa-trash'></i> Sil </a>";
+                    },
+                        "scrollX": true,
+                        "orderable": false,
+                        "searchable":false,
+                        "width":"150px"
+                    }
+
+                ],
+                "language": {
+
+                                "info": "_TOTAL_ adet girişten _START_ ile _END_ arasındakiler gösteriliyor",
+                    "infoEmpty": "0 adet kayıttan 0 ile 0 arasındakiler gösteriliyor",
+                    "infoFiltered": "(_MAX_ kayıttan filtrelenmiş)",
+                    "lengthMenu": "Sayfa başına _MENU_ adet kayıt göster",
+                    "loadingRecords": "Yükleniyor...",
+                    "zeroRecords": "Hiçbir eşleşen kayıt bulunamadı",
+                    "search": "Ara:",
+                    "emptyTable": "Veri bulunamadı, Lütfen  <b>Ekle</b>  butonuna tıklayınız.",
+                    "paginate": {
+
+                        "next": "Sonraki",
+                        "previous": "Önceki"
+                    },
+                }
+
+
+            });
+        });
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+                .done(function (response) {
+                    formDiv.html(response);
+
+                    Popup = formDiv.dialog({
+                        show: {
+                            effect: "blind",
+                            duration: 600
+                        },
+                        hide: {
+                            effect: "blind",
+                            duration: 600
+                        },
+                        modal: true,
+                        responsive: true,
+                        autoOpen: true,
+                        resizable: true,
+                        title: 'Stok Bilgisi Ekle',
+                        height: 430,
+                        width: 1200,
+                        close: function () {
+                            Popup.dialog('destroy').remove();
+                        }
+                    });
+                });
+        }
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+        function Delete(id) {
+            if (confirm('Sectiğiniz kaydı silmek istediğinize emin misiniz ? '))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete_Customer", "Customer")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+            }
+
+    </script>
+    }
+</body>

@@ -1,0 +1,186 @@
+﻿
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>ProUI Email Template - Welcome</title>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+            @media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
+                body[yahoo] .buttonwrapper { background-color: transparent !important; }
+                body[yahoo] .button { padding: 0 !important; }
+                body[yahoo] .button a { background-color: #69b899; padding: 15px 25px !important; }
+            }
+
+            @media only screen and (min-device-width: 601px) {
+                .content { width: 600px !important; }
+                .col387 { width: 387px !important; }
+            }
+    </style>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body bgcolor=#58FAF4 style="margin: 0; padding: 0;" yahoo="fix">
+    <!--[if (gte mso 9)|(IE)]>
+    <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+    <![endif]-->
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 600px;" class="content">
+
+        <tr>
+            <td align="center" bgcolor="#81DAF5" style="padding: 20px 20px 20px 20px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px; font-weight: bold;">
+                <b>BA/BS Mutabakat Bildirimi </b> <br /><small>@ViewBag.FaturaDetayları <b> Faturası</b></small>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td align="center" bgcolor="#A9E2F3" style="padding: 40px 20px 40px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 20px; line-height: 30px; border-bottom: 1px solid #f6f6f6;">
+                <b>Gönderim Tarihi </b> @ViewBag.GönderimTarihi
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <td align="center" bgcolor="#CEECF5" style="padding: 40px 20px 40px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 20px; line-height: 30px; border-bottom: 1px solid #f6f6f6;">
+                <b align="left">Gönderen Firma  :</b>
+                @ViewBag.KullanıcıCompanyTitle
+                <table bgcolor="#69b899" border="0" cellspacing="0" cellpadding="0" class="buttonwrapper" align="center">
+                    <tr>
+                        <td>
+                            <small> Vergi Dairesi </small>
+                        </td>
+                        <td>
+                            <small> Telefon Numarası </small>
+                        </td>
+                        <td>
+                            <small> Vergi Numarası  </small>
+                        </td>
+
+
+                    </tr>
+                    <tr>
+
+
+                        <td>
+                            <small> @ViewBag.KullanıcıTaxOffice </small>
+                        </td>
+                        <td>
+                            <small>@ViewBag.KullanıcıPhoneNumber </small>
+                        </td>
+                        <td>
+                            <small>@ViewBag.KullanıcıTaxNumber</small>
+                        </td>
+
+
+                    </tr>
+                </table>
+
+            </td>
+
+        </tr>
+
+
+        <tr>
+            <td align="center" bgcolor="#CEECF5" style="padding: 40px 20px 40px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 20px; line-height: 30px; border-bottom: 1px solid #f6f6f6;">
+                <b align="left">Sayın :</b>
+                @ViewBag.GönderilenCariAdı
+                <table bgcolor="#69b899" border="0" cellspacing="0" cellpadding="0" class="buttonwrapper" align="center">
+                    <tr>
+                        <td>
+                            <small> Cari Kodu </small>
+                        </td>
+                        <td>
+                            <small> Vergi Numarası </small>
+                        </td>
+                        <td>
+                            <small> Belge Sayısı </small>
+                        </td>
+                        <td>
+                            <small> Toplam Tutar </small>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+
+                        <td>
+                            <small>@ViewBag.GönderilenCariKodu </small>
+                        </td>
+                        <td>
+                            <small>@ViewBag.GönderilenVergiNo </small>
+                        </td>
+                        <td>
+                            <small>@ViewBag.GönderilenBelgeSayısı </small>
+                        </td>
+                        <td>
+                            <small>@ViewBag.GönderilenToplamTutar</small>
+                        </td>
+
+
+                    </tr>
+                </table>
+
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+            <td align="center" bgcolor="#E0F2F7" style="padding: 30px 20px 30px 20px; font-family: Arial, sans-serif;">
+                <small>Söz konusu tarih için, bu bilgilerde mutabıksanız alttaki “Mutabıkız” butonunu tıklamanızı, mutabık değilseniz “Mutabık değiliz” butonunu tıklayarak cari ekstrenizi sistem üzerinden paylaşmanızı rica ederiz. </small> <br /><br /><br />
+                <table bgcolor="#69b899" border="0" cellspacing="0" cellpadding="0" class="buttonwrapper" align="center">
+                    <tr>
+                        <td align="center" height="50" style=" padding: 0 25px 0 25px; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold;" class="button">
+                            <a href="@ViewBag.MutabikLink"> MUTABIKIZ </a>
+                        </td>
+                        <td align="center" height="50" style=" padding: 0 25px 0 25px; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold;" class="button">
+                            <a href="@ViewBag.MutabikDegilLink"> MUTABIK DEĞİLİZ </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td align="center" bgcolor="#dddddd" style="padding: 15px 10px 15px 10px; color: #555555; font-family: Arial, sans-serif; font-size: 12px; line-height: 18px;">
+                <b>Yirmibeş Yazılım</b><br />Efeler &bull; Aydın &bull; Türkiye
+            </td>
+        </tr>
+
+
+        <tr>
+            <td style="padding: 15px 10px 15px 10px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+                    <tr>
+                        <td align="center" width="100%" style="color: #999999; font-family: Arial, sans-serif; font-size: 12px;">
+                            &copy; <a href="http://www.mutabakatci.com" style="color: #69b899;">Mutabakatci.com</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+    </table>
+    <!--[if (gte mso 9)|(IE)]>
+            </td>
+        </tr>
+    </table>
+    <![endif]-->
+</body>
+</html>

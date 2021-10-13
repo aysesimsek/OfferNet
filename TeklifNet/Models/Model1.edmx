@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eteklifn_netModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLCASABIT">
+          <Key>
+            <PropertyRef Name="CARI_ID" />
+          </Key>
+          <Property Name="CARI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIRKET_ID" Type="int" Nullable="false" />
+          <Property Name="CARI_ISIM" Type="varchar" MaxLength="150" />
+          <Property Name="CARI_KODU" Type="varchar" MaxLength="20" />
+          <Property Name="CARI_TEL" Type="varchar" MaxLength="20" />
+          <Property Name="CARI_GSM" Type="varchar" MaxLength="20" />
+          <Property Name="CARI_IL" Type="varchar" MaxLength="50" />
+          <Property Name="CARI_ILCE" Type="varchar" MaxLength="50" />
+          <Property Name="CARI_ADRES" Type="varchar" MaxLength="150" />
+          <Property Name="GRUP_KODU" Type="varchar" MaxLength="20" />
+          <Property Name="RAPOR_KODU1" Type="varchar" MaxLength="20" />
+          <Property Name="RAPOR_KODU2" Type="varchar" MaxLength="20" />
+          <Property Name="RAPOR_KODU3" Type="varchar" MaxLength="20" />
+          <Property Name="RAPOR_KODU4" Type="varchar" MaxLength="20" />
+          <Property Name="RAPOR_KODU5" Type="varchar" MaxLength="20" />
+          <Property Name="TCKIMLIKNO" Type="varchar" MaxLength="20" />
+          <Property Name="VERGI_DAIRESI" Type="varchar" MaxLength="50" />
+          <Property Name="VERGI_NUMARASI" Type="varchar" MaxLength="20" />
+          <Property Name="FAX" Type="varchar" MaxLength="20" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+          <Property Name="WEB" Type="varchar" MaxLength="60" />
+          <Property Name="ISKONTO_ORANI" Type="float" />
+          <Property Name="KAYITTARIHI" Type="varchar" MaxLength="20" />
+          <Property Name="KAYITYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="DUZELTMETARIHI" Type="varchar" MaxLength="20" />
+          <Property Name="DUZELTMEYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK1" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK2" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK3" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK4" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK5" Type="varchar" MaxLength="50" />
+          <Property Name="F_YEDEK1" Type="float" />
+          <Property Name="F_YEDEK2" Type="float" />
+          <Property Name="F_YEDEK3" Type="float" />
+          <Property Name="D_YEDEK1" Type="datetime" />
+          <Property Name="D_YEDEK2" Type="datetime" />
+          <Property Name="D_YEDEK3" Type="datetime" />
+          <Property Name="I_YEDEK1" Type="int" />
+          <Property Name="I_YEDEK2" Type="int" />
+          <Property Name="I_YEDEK3" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLKULLANP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIRKET_ID" Type="int" Nullable="false" />
+          <Property Name="KULL_KODU" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="KULL_ADI" Type="varchar" MaxLength="30" />
+          <Property Name="SIFRE" Type="varchar" MaxLength="100" />
+          <Property Name="YETKI" Type="varchar" MaxLength="300" />
+          <Property Name="MAIL" Type="varchar" MaxLength="30" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="30" />
+          <Property Name="TEKLIF_SERI" Type="varchar" MaxLength="15" />
+          <Property Name="ISVALID" Type="bit" />
+          <Property Name="AKTIVASYON_LINK" Type="uniqueidentifier" />
+          <Property Name="SIFRESIFIRLAMA_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="KAYITTARIHI" Type="varchar" MaxLength="20" />
+          <Property Name="KAYITYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="DUZELTMETARIHI" Type="varchar" MaxLength="20" />
+          <Property Name="DUZELTMEYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK1" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK2" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK3" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK4" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK5" Type="varchar" MaxLength="50" />
+          <Property Name="F_YEDEK1" Type="float" />
+          <Property Name="F_YEDEK2" Type="float" />
+          <Property Name="D_YEDEK1" Type="datetime" />
+          <Property Name="D_YEDEK2" Type="datetime" />
+          <Property Name="I_YEDEK1" Type="int" />
+          <Property Name="I_YEDEK2" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLLISTEPARAM">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+            <PropertyRef Name="ACIKLAMA" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="int" Nullable="false" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RAPOR_KODU" Type="varchar" MaxLength="50" />
+          <Property Name="ANAURUN" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLSIRKETLER">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIRKET_UNVANI" Type="varchar" MaxLength="200" />
+          <Property Name="SIRKET_YETKILI" Type="varchar" MaxLength="50" />
+          <Property Name="SIRKET_ADRES" Type="text" />
+          <Property Name="SIRKET_IL" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_ILCE" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_VERGIDAIRESI" Type="varchar" MaxLength="30" />
+          <Property Name="SIRKET_VERGINUMARASI" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_GSM" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_FAX" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_MAIL" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_POSTAKODU" Type="varchar" MaxLength="20" />
+          <Property Name="KEY" Type="varchar" MaxLength="20" />
+          <Property Name="SIRKET_KAYITTARIHI" Type="datetime" />
+          <Property Name="KAYITYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="DUZELTMETARIHI" Type="datetime" />
+          <Property Name="DUZELTMEYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="AKTIF" Type="bit" />
+          <Property Name="S_YEDEK1" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK2" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK3" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK4" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK5" Type="varchar" MaxLength="50" />
+          <Property Name="D_YEDEK1" Type="datetime" />
+          <Property Name="D_YEDEK2" Type="datetime" />
+          <Property Name="F_YEDEK1" Type="float" />
+          <Property Name="F_YEDEK2" Type="float" />
+          <Property Name="I_YEDEK1" Type="int" />
+          <Property Name="I_YEDEK2" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLSTSABIT">
+          <Key>
+            <PropertyRef Name="STOK_ID" />
+          </Key>
+          <Property Name="STOK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIRKET_ID" Type="int" Nullable="false" />
+          <Property Name="STOK_KODU" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="STOK_ADI" Type="varchar" MaxLength="200" />
+          <Property Name="ING_ADI" Type="varchar" MaxLength="200" />
+          <Property Name="GRUP_KODU" Type="varchar" MaxLength="20" />
+          <Property Name="KOD_1" Type="varchar" MaxLength="20" />
+          <Property Name="KOD_2" Type="varchar" MaxLength="20" />
+          <Property Name="KOD_3" Type="varchar" MaxLength="20" />
+          <Property Name="KOD_4" Type="varchar" MaxLength="20" />
+          <Property Name="KOD_5" Type="varchar" MaxLength="20" />
+          <Property Name="SATIS_FIAT1" Type="float" />
+          <Property Name="SATIS_FIAT2" Type="float" />
+          <Property Name="SATIS_FIAT3" Type="float" />
+          <Property Name="SATIS_FIAT4" Type="float" />
+          <Property Name="ALIS_FIAT1" Type="float" />
+          <Property Name="ALIS_FIAT2" Type="float" />
+          <Property Name="ALIS_FIAT3" Type="float" />
+          <Property Name="ALIS_FIAT4" Type="float" />
+          <Property Name="SAT_DOV_TIP" Type="int" />
+          <Property Name="DOV_SATIS_FIAT" Type="float" />
+          <Property Name="TEKLIFMIKTAR" Type="bit" />
+          <Property Name="OLCU_BR1" Type="varchar" MaxLength="5" />
+          <Property Name="KDV_ORANI" Type="float" />
+          <Property Name="BARKOD1" Type="varchar" MaxLength="15" />
+          <Property Name="BARKOD2" Type="varchar" MaxLength="15" />
+          <Property Name="BARKOD3" Type="varchar" MaxLength="15" />
+          <Property Name="PASIF" Type="bit" />
+          <Property Name="KAYITTARIHI" Type="varchar" MaxLength="20" />
+          <Property Name="KAYITYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="DUZELTMETARIHI" Type="varchar" MaxLength="20" />
+          <Property Name="DUZELTMEYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK1" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK2" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK3" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK4" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK5" Type="varchar" MaxLength="50" />
+          <Property Name="F_YEDEK1" Type="float" />
+          <Property Name="F_YEDEK2" Type="float" />
+          <Property Name="F_YEDEK3" Type="float" />
+          <Property Name="D_YEDEK1" Type="datetime" />
+          <Property Name="D_YEDEK2" Type="datetime" />
+          <Property Name="D_YEDEK3" Type="datetime" />
+          <Property Name="I_YEDEK1" Type="int" />
+          <Property Name="I_YEDEK2" Type="int" />
+          <Property Name="I_YEDEK3" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLTEKLIF">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+            <PropertyRef Name="FISNO" />
+            <PropertyRef Name="REVNO" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="int" Nullable="false" />
+          <Property Name="FISNO" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="REVNO" Type="int" Nullable="false" />
+          <Property Name="CARI_KOD" Type="varchar" MaxLength="40" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="50" />
+          <Property Name="ACIK1" Type="varchar" MaxLength="100" />
+          <Property Name="ACIK2" Type="varchar" MaxLength="100" />
+          <Property Name="ACIK3" Type="varchar" MaxLength="100" />
+          <Property Name="GEN_ISK1O" Type="float" />
+          <Property Name="GEN_ISK2O" Type="float" />
+          <Property Name="GEN_ISK3O" Type="float" />
+          <Property Name="GEN_ISK1T" Type="float" />
+          <Property Name="GEN_ISK2T" Type="float" />
+          <Property Name="GEN_ISK3T" Type="float" />
+          <Property Name="BRUTTUTAR" Type="float" />
+          <Property Name="KDV" Type="float" />
+          <Property Name="GENELTOPLAM" Type="float" />
+          <Property Name="SATIR_ISKT" Type="float" />
+          <Property Name="KOD1" Type="varchar" MaxLength="1" />
+          <Property Name="KOD2" Type="varchar" MaxLength="1" />
+          <Property Name="KAYITTARIHI" Type="datetime" />
+          <Property Name="KAYITYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="DUZELTMETARIHI" Type="datetime" />
+          <Property Name="DUZELTMEYAPANKULL" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK1" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK2" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK3" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK4" Type="varchar" MaxLength="50" />
+          <Property Name="S_YEDEK5" Type="varchar" MaxLength="50" />
+          <Property Name="F_YEDEK1" Type="float" />
+          <Property Name="F_YEDEK2" Type="float" />
+          <Property Name="F_YEDEK3" Type="float" />
+          <Property Name="D_YEDEK1" Type="datetime" />
+          <Property Name="D_YEDEK2" Type="datetime" />
+          <Property Name="D_YEDEK3" Type="datetime" />
+          <Property Name="I_YEDEK1" Type="int" />
+          <Property Name="I_YEDEK2" Type="int" />
+          <Property Name="I_YEDEK3" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLTEKLIFHAR">
+          <Key>
+            <PropertyRef Name="INCKEYNO" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="int" />
+          <Property Name="FISNO" Type="varchar" MaxLength="15" />
+          <Property Name="REVNO" Type="int" />
+          <Property Name="CARI_KOD" Type="varchar" MaxLength="40" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="GCKOD" Type="varchar" MaxLength="1" />
+          <Property Name="STOK_KODU" Type="varchar" MaxLength="40" />
+          <Property Name="MIKTAR" Type="float" />
+          <Property Name="NET_FIYAT" Type="float" />
+          <Property Name="BRUT_FIYAT" Type="float" />
+          <Property Name="DEPO_KODU" Type="int" />
+          <Property Name="KDV" Type="float" />
+          <Property Name="ACIK1" Type="varchar" MaxLength="50" />
+          <Property Name="ACIK2" Type="varchar" MaxLength="50" />
+          <Property Name="ACIK3" Type="varchar" MaxLength="50" />
+          <Property Name="SAT_ISK1" Type="float" />
+          <Property Name="SAT_ISK2" Type="float" />
+          <Property Name="SAT_ISK3" Type="float" />
+          <Property Name="EKALAN" Type="varchar" MaxLength="100" />
+          <Property Name="EKALAN1" Type="varchar" MaxLength="100" />
+          <Property Name="INCKEYNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBLTEKLIFNO">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+            <PropertyRef Name="SERI" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="int" Nullable="false" />
+          <Property Name="SERI" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="NUMARA" Type="varchar" MaxLength="15" />
+          <Property Name="TIP" Type="int" />
+        </EntityType>
+        <EntityContainer Name="eteklifn_netModelStoreContainer">
+          <EntitySet Name="TBLCASABIT" EntityType="Self.TBLCASABIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKULLANP" EntityType="Self.TBLKULLANP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLLISTEPARAM" EntityType="Self.TBLLISTEPARAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSIRKETLER" EntityType="Self.TBLSIRKETLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSTSABIT" EntityType="Self.TBLSTSABIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTEKLIF" EntityType="Self.TBLTEKLIF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTEKLIFHAR" EntityType="Self.TBLTEKLIFHAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTEKLIFNO" EntityType="Self.TBLTEKLIFNO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eteklifn_netModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLLISTEPARAM">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+            <PropertyRef Name="ACIKLAMA" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RAPOR_KODU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ANAURUN" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBLTEKLIF">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+            <PropertyRef Name="FISNO" />
+            <PropertyRef Name="REVNO" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" />
+          <Property Name="FISNO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REVNO" Type="Int32" Nullable="false" />
+          <Property Name="CARI_KOD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACIK1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ACIK2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ACIK3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GEN_ISK1O" Type="Double" />
+          <Property Name="GEN_ISK2O" Type="Double" />
+          <Property Name="GEN_ISK3O" Type="Double" />
+          <Property Name="GEN_ISK1T" Type="Double" />
+          <Property Name="GEN_ISK2T" Type="Double" />
+          <Property Name="GEN_ISK3T" Type="Double" />
+          <Property Name="BRUTTUTAR" Type="Double" />
+          <Property Name="KDV" Type="Double" />
+          <Property Name="GENELTOPLAM" Type="Double" />
+          <Property Name="SATIR_ISKT" Type="Double" />
+          <Property Name="KOD1" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="KOD2" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="KAYITTARIHI" Type="DateTime" Precision="3" />
+          <Property Name="KAYITYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMETARIHI" Type="DateTime" Precision="3" />
+          <Property Name="DUZELTMEYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_YEDEK1" Type="Double" />
+          <Property Name="F_YEDEK2" Type="Double" />
+          <Property Name="F_YEDEK3" Type="Double" />
+          <Property Name="D_YEDEK1" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK2" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK3" Type="DateTime" Precision="3" />
+          <Property Name="I_YEDEK1" Type="Int32" />
+          <Property Name="I_YEDEK2" Type="Int32" />
+          <Property Name="I_YEDEK3" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLTEKLIFHAR">
+          <Key>
+            <PropertyRef Name="INCKEYNO" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="Int32" />
+          <Property Name="FISNO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="REVNO" Type="Int32" />
+          <Property Name="CARI_KOD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="GCKOD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="STOK_KODU" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MIKTAR" Type="Double" />
+          <Property Name="NET_FIYAT" Type="Double" />
+          <Property Name="BRUT_FIYAT" Type="Double" />
+          <Property Name="DEPO_KODU" Type="Int32" />
+          <Property Name="KDV" Type="Double" />
+          <Property Name="ACIK1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACIK2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACIK3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAT_ISK1" Type="Double" />
+          <Property Name="SAT_ISK2" Type="Double" />
+          <Property Name="SAT_ISK3" Type="Double" />
+          <Property Name="EKALAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EKALAN1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="INCKEYNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TBLTEKLIFNO">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+            <PropertyRef Name="SERI" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" />
+          <Property Name="SERI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUMARA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="eteklifn_netEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLLISTEPARAM" EntityType="Self.TBLLISTEPARAM" />
+          <EntitySet Name="TBLTEKLIF" EntityType="Self.TBLTEKLIF" />
+          <EntitySet Name="TBLTEKLIFHAR" EntityType="Self.TBLTEKLIFHAR" />
+          <EntitySet Name="TBLTEKLIFNO" EntityType="Self.TBLTEKLIFNO" />
+          <EntitySet Name="TBLSIRKETLER" EntityType="eteklifn_netModel.TBLSIRKETLER" />
+          <EntitySet Name="TBLCASABIT" EntityType="eteklifn_netModel.TBLCASABIT" />
+          <EntitySet Name="TBLKULLANP" EntityType="eteklifn_netModel.TBLKULLANP" />
+          <EntitySet Name="TBLSTSABIT" EntityType="eteklifn_netModel.TBLSTSABIT" />
+        </EntityContainer>
+        <EntityType Name="TBLSIRKETLER">
+          <Key>
+            <PropertyRef Name="SIRKET_ID" />
+          </Key>
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIRKET_UNVANI" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_YETKILI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_ADRES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_IL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_ILCE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_VERGIDAIRESI" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_VERGINUMARASI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_GSM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_MAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_POSTAKODU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KEY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIRKET_KAYITTARIHI" Type="DateTime" Precision="3" />
+          <Property Name="KAYITYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMETARIHI" Type="DateTime" Precision="3" />
+          <Property Name="DUZELTMEYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AKTIF" Type="Boolean" />
+          <Property Name="S_YEDEK1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="D_YEDEK1" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK2" Type="DateTime" Precision="3" />
+          <Property Name="F_YEDEK1" Type="Double" />
+          <Property Name="F_YEDEK2" Type="Double" />
+          <Property Name="I_YEDEK1" Type="Int32" />
+          <Property Name="I_YEDEK2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLCASABIT">
+          <Key>
+            <PropertyRef Name="CARI_ID" />
+          </Key>
+          <Property Name="CARI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" />
+          <Property Name="CARI_ISIM" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_GSM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_IL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_ILCE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_ADRES" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="GRUP_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RAPOR_KODU1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RAPOR_KODU2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RAPOR_KODU3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RAPOR_KODU4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RAPOR_KODU5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TCKIMLIKNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VERGI_DAIRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VERGI_NUMARASI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WEB" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ISKONTO_ORANI" Type="Double" />
+          <Property Name="KAYITTARIHI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KAYITYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMETARIHI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMEYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_YEDEK1" Type="Double" />
+          <Property Name="F_YEDEK2" Type="Double" />
+          <Property Name="F_YEDEK3" Type="Double" />
+          <Property Name="D_YEDEK1" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK2" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK3" Type="DateTime" Precision="3" />
+          <Property Name="I_YEDEK1" Type="Int32" />
+          <Property Name="I_YEDEK2" Type="Int32" />
+          <Property Name="I_YEDEK3" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLKULLANP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" />
+          <Property Name="KULL_KODU" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KULL_ADI" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SIFRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="YETKI" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TEKLIF_SERI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ISVALID" Type="Boolean" />
+          <Property Name="AKTIVASYON_LINK" Type="Guid" />
+          <Property Name="SIFRESIFIRLAMA_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KAYITTARIHI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KAYITYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMETARIHI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMEYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_YEDEK1" Type="Double" />
+          <Property Name="F_YEDEK2" Type="Double" />
+          <Property Name="D_YEDEK1" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK2" Type="DateTime" Precision="3" />
+          <Property Name="I_YEDEK1" Type="Int32" />
+          <Property Name="I_YEDEK2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLSTSABIT">
+          <Key>
+            <PropertyRef Name="STOK_ID" />
+          </Key>
+          <Property Name="STOK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIRKET_ID" Type="Int32" Nullable="false" />
+          <Property Name="STOK_KODU" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="STOK_ADI" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ING_ADI" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GRUP_KODU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KOD_1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KOD_2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KOD_3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KOD_4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KOD_5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SATIS_FIAT1" Type="Double" />
+          <Property Name="SATIS_FIAT2" Type="Double" />
+          <Property Name="SATIS_FIAT3" Type="Double" />
+          <Property Name="SATIS_FIAT4" Type="Double" />
+          <Property Name="ALIS_FIAT1" Type="Double" />
+          <Property Name="ALIS_FIAT2" Type="Double" />
+          <Property Name="ALIS_FIAT3" Type="Double" />
+          <Property Name="ALIS_FIAT4" Type="Double" />
+          <Property Name="SAT_DOV_TIP" Type="Int32" />
+          <Property Name="DOV_SATIS_FIAT" Type="Double" />
+          <Property Name="TEKLIFMIKTAR" Type="Boolean" />
+          <Property Name="OLCU_BR1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="KDV_ORANI" Type="Double" />
+          <Property Name="BARKOD1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BARKOD2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BARKOD3" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PASIF" Type="Boolean" />
+          <Property Name="KAYITTARIHI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KAYITYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMETARIHI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DUZELTMEYAPANKULL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_YEDEK5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_YEDEK1" Type="Double" />
+          <Property Name="F_YEDEK2" Type="Double" />
+          <Property Name="F_YEDEK3" Type="Double" />
+          <Property Name="D_YEDEK1" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK2" Type="DateTime" Precision="3" />
+          <Property Name="D_YEDEK3" Type="DateTime" Precision="3" />
+          <Property Name="I_YEDEK1" Type="Int32" />
+          <Property Name="I_YEDEK2" Type="Int32" />
+          <Property Name="I_YEDEK3" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eteklifn_netModelStoreContainer" CdmEntityContainer="eteklifn_netEntities">
+          <EntitySetMapping Name="TBLLISTEPARAM">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLLISTEPARAM">
+              <MappingFragment StoreEntitySet="TBLLISTEPARAM">
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="RAPOR_KODU" ColumnName="RAPOR_KODU" />
+                <ScalarProperty Name="ANAURUN" ColumnName="ANAURUN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTEKLIF">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLTEKLIF">
+              <MappingFragment StoreEntitySet="TBLTEKLIF">
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="FISNO" ColumnName="FISNO" />
+                <ScalarProperty Name="REVNO" ColumnName="REVNO" />
+                <ScalarProperty Name="CARI_KOD" ColumnName="CARI_KOD" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="ACIK1" ColumnName="ACIK1" />
+                <ScalarProperty Name="ACIK2" ColumnName="ACIK2" />
+                <ScalarProperty Name="ACIK3" ColumnName="ACIK3" />
+                <ScalarProperty Name="GEN_ISK1O" ColumnName="GEN_ISK1O" />
+                <ScalarProperty Name="GEN_ISK2O" ColumnName="GEN_ISK2O" />
+                <ScalarProperty Name="GEN_ISK3O" ColumnName="GEN_ISK3O" />
+                <ScalarProperty Name="GEN_ISK1T" ColumnName="GEN_ISK1T" />
+                <ScalarProperty Name="GEN_ISK2T" ColumnName="GEN_ISK2T" />
+                <ScalarProperty Name="GEN_ISK3T" ColumnName="GEN_ISK3T" />
+                <ScalarProperty Name="BRUTTUTAR" ColumnName="BRUTTUTAR" />
+                <ScalarProperty Name="KDV" ColumnName="KDV" />
+                <ScalarProperty Name="GENELTOPLAM" ColumnName="GENELTOPLAM" />
+                <ScalarProperty Name="SATIR_ISKT" ColumnName="SATIR_ISKT" />
+                <ScalarProperty Name="KOD1" ColumnName="KOD1" />
+                <ScalarProperty Name="KOD2" ColumnName="KOD2" />
+                <ScalarProperty Name="KAYITTARIHI" ColumnName="KAYITTARIHI" />
+                <ScalarProperty Name="KAYITYAPANKULL" ColumnName="KAYITYAPANKULL" />
+                <ScalarProperty Name="DUZELTMETARIHI" ColumnName="DUZELTMETARIHI" />
+                <ScalarProperty Name="DUZELTMEYAPANKULL" ColumnName="DUZELTMEYAPANKULL" />
+                <ScalarProperty Name="S_YEDEK1" ColumnName="S_YEDEK1" />
+                <ScalarProperty Name="S_YEDEK2" ColumnName="S_YEDEK2" />
+                <ScalarProperty Name="S_YEDEK3" ColumnName="S_YEDEK3" />
+                <ScalarProperty Name="S_YEDEK4" ColumnName="S_YEDEK4" />
+                <ScalarProperty Name="S_YEDEK5" ColumnName="S_YEDEK5" />
+                <ScalarProperty Name="F_YEDEK1" ColumnName="F_YEDEK1" />
+                <ScalarProperty Name="F_YEDEK2" ColumnName="F_YEDEK2" />
+                <ScalarProperty Name="F_YEDEK3" ColumnName="F_YEDEK3" />
+                <ScalarProperty Name="D_YEDEK1" ColumnName="D_YEDEK1" />
+                <ScalarProperty Name="D_YEDEK2" ColumnName="D_YEDEK2" />
+                <ScalarProperty Name="D_YEDEK3" ColumnName="D_YEDEK3" />
+                <ScalarProperty Name="I_YEDEK1" ColumnName="I_YEDEK1" />
+                <ScalarProperty Name="I_YEDEK2" ColumnName="I_YEDEK2" />
+                <ScalarProperty Name="I_YEDEK3" ColumnName="I_YEDEK3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTEKLIFHAR">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLTEKLIFHAR">
+              <MappingFragment StoreEntitySet="TBLTEKLIFHAR">
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="FISNO" ColumnName="FISNO" />
+                <ScalarProperty Name="REVNO" ColumnName="REVNO" />
+                <ScalarProperty Name="CARI_KOD" ColumnName="CARI_KOD" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="GCKOD" ColumnName="GCKOD" />
+                <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+                <ScalarProperty Name="MIKTAR" ColumnName="MIKTAR" />
+                <ScalarProperty Name="NET_FIYAT" ColumnName="NET_FIYAT" />
+                <ScalarProperty Name="BRUT_FIYAT" ColumnName="BRUT_FIYAT" />
+                <ScalarProperty Name="DEPO_KODU" ColumnName="DEPO_KODU" />
+                <ScalarProperty Name="KDV" ColumnName="KDV" />
+                <ScalarProperty Name="ACIK1" ColumnName="ACIK1" />
+                <ScalarProperty Name="ACIK2" ColumnName="ACIK2" />
+                <ScalarProperty Name="ACIK3" ColumnName="ACIK3" />
+                <ScalarProperty Name="SAT_ISK1" ColumnName="SAT_ISK1" />
+                <ScalarProperty Name="SAT_ISK2" ColumnName="SAT_ISK2" />
+                <ScalarProperty Name="SAT_ISK3" ColumnName="SAT_ISK3" />
+                <ScalarProperty Name="EKALAN" ColumnName="EKALAN" />
+                <ScalarProperty Name="EKALAN1" ColumnName="EKALAN1" />
+                <ScalarProperty Name="INCKEYNO" ColumnName="INCKEYNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTEKLIFNO">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLTEKLIFNO">
+              <MappingFragment StoreEntitySet="TBLTEKLIFNO">
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="SERI" ColumnName="SERI" />
+                <ScalarProperty Name="NUMARA" ColumnName="NUMARA" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSIRKETLER">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLSIRKETLER">
+              <MappingFragment StoreEntitySet="TBLSIRKETLER">
+                <ScalarProperty Name="I_YEDEK2" ColumnName="I_YEDEK2" />
+                <ScalarProperty Name="I_YEDEK1" ColumnName="I_YEDEK1" />
+                <ScalarProperty Name="F_YEDEK2" ColumnName="F_YEDEK2" />
+                <ScalarProperty Name="F_YEDEK1" ColumnName="F_YEDEK1" />
+                <ScalarProperty Name="D_YEDEK2" ColumnName="D_YEDEK2" />
+                <ScalarProperty Name="D_YEDEK1" ColumnName="D_YEDEK1" />
+                <ScalarProperty Name="S_YEDEK5" ColumnName="S_YEDEK5" />
+                <ScalarProperty Name="S_YEDEK4" ColumnName="S_YEDEK4" />
+                <ScalarProperty Name="S_YEDEK3" ColumnName="S_YEDEK3" />
+                <ScalarProperty Name="S_YEDEK2" ColumnName="S_YEDEK2" />
+                <ScalarProperty Name="S_YEDEK1" ColumnName="S_YEDEK1" />
+                <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+                <ScalarProperty Name="DUZELTMEYAPANKULL" ColumnName="DUZELTMEYAPANKULL" />
+                <ScalarProperty Name="DUZELTMETARIHI" ColumnName="DUZELTMETARIHI" />
+                <ScalarProperty Name="KAYITYAPANKULL" ColumnName="KAYITYAPANKULL" />
+                <ScalarProperty Name="SIRKET_KAYITTARIHI" ColumnName="SIRKET_KAYITTARIHI" />
+                <ScalarProperty Name="KEY" ColumnName="KEY" />
+                <ScalarProperty Name="SIRKET_POSTAKODU" ColumnName="SIRKET_POSTAKODU" />
+                <ScalarProperty Name="SIRKET_MAIL" ColumnName="SIRKET_MAIL" />
+                <ScalarProperty Name="SIRKET_FAX" ColumnName="SIRKET_FAX" />
+                <ScalarProperty Name="SIRKET_GSM" ColumnName="SIRKET_GSM" />
+                <ScalarProperty Name="SIRKET_TELEFON" ColumnName="SIRKET_TELEFON" />
+                <ScalarProperty Name="SIRKET_VERGINUMARASI" ColumnName="SIRKET_VERGINUMARASI" />
+                <ScalarProperty Name="SIRKET_VERGIDAIRESI" ColumnName="SIRKET_VERGIDAIRESI" />
+                <ScalarProperty Name="SIRKET_ILCE" ColumnName="SIRKET_ILCE" />
+                <ScalarProperty Name="SIRKET_IL" ColumnName="SIRKET_IL" />
+                <ScalarProperty Name="SIRKET_ADRES" ColumnName="SIRKET_ADRES" />
+                <ScalarProperty Name="SIRKET_YETKILI" ColumnName="SIRKET_YETKILI" />
+                <ScalarProperty Name="SIRKET_UNVANI" ColumnName="SIRKET_UNVANI" />
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCASABIT">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLCASABIT">
+              <MappingFragment StoreEntitySet="TBLCASABIT">
+                <ScalarProperty Name="I_YEDEK3" ColumnName="I_YEDEK3" />
+                <ScalarProperty Name="I_YEDEK2" ColumnName="I_YEDEK2" />
+                <ScalarProperty Name="I_YEDEK1" ColumnName="I_YEDEK1" />
+                <ScalarProperty Name="D_YEDEK3" ColumnName="D_YEDEK3" />
+                <ScalarProperty Name="D_YEDEK2" ColumnName="D_YEDEK2" />
+                <ScalarProperty Name="D_YEDEK1" ColumnName="D_YEDEK1" />
+                <ScalarProperty Name="F_YEDEK3" ColumnName="F_YEDEK3" />
+                <ScalarProperty Name="F_YEDEK2" ColumnName="F_YEDEK2" />
+                <ScalarProperty Name="F_YEDEK1" ColumnName="F_YEDEK1" />
+                <ScalarProperty Name="S_YEDEK5" ColumnName="S_YEDEK5" />
+                <ScalarProperty Name="S_YEDEK4" ColumnName="S_YEDEK4" />
+                <ScalarProperty Name="S_YEDEK3" ColumnName="S_YEDEK3" />
+                <ScalarProperty Name="S_YEDEK2" ColumnName="S_YEDEK2" />
+                <ScalarProperty Name="S_YEDEK1" ColumnName="S_YEDEK1" />
+                <ScalarProperty Name="DUZELTMEYAPANKULL" ColumnName="DUZELTMEYAPANKULL" />
+                <ScalarProperty Name="DUZELTMETARIHI" ColumnName="DUZELTMETARIHI" />
+                <ScalarProperty Name="KAYITYAPANKULL" ColumnName="KAYITYAPANKULL" />
+                <ScalarProperty Name="KAYITTARIHI" ColumnName="KAYITTARIHI" />
+                <ScalarProperty Name="ISKONTO_ORANI" ColumnName="ISKONTO_ORANI" />
+                <ScalarProperty Name="WEB" ColumnName="WEB" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="VERGI_NUMARASI" ColumnName="VERGI_NUMARASI" />
+                <ScalarProperty Name="VERGI_DAIRESI" ColumnName="VERGI_DAIRESI" />
+                <ScalarProperty Name="TCKIMLIKNO" ColumnName="TCKIMLIKNO" />
+                <ScalarProperty Name="RAPOR_KODU5" ColumnName="RAPOR_KODU5" />
+                <ScalarProperty Name="RAPOR_KODU4" ColumnName="RAPOR_KODU4" />
+                <ScalarProperty Name="RAPOR_KODU3" ColumnName="RAPOR_KODU3" />
+                <ScalarProperty Name="RAPOR_KODU2" ColumnName="RAPOR_KODU2" />
+                <ScalarProperty Name="RAPOR_KODU1" ColumnName="RAPOR_KODU1" />
+                <ScalarProperty Name="GRUP_KODU" ColumnName="GRUP_KODU" />
+                <ScalarProperty Name="CARI_ADRES" ColumnName="CARI_ADRES" />
+                <ScalarProperty Name="CARI_ILCE" ColumnName="CARI_ILCE" />
+                <ScalarProperty Name="CARI_IL" ColumnName="CARI_IL" />
+                <ScalarProperty Name="CARI_GSM" ColumnName="CARI_GSM" />
+                <ScalarProperty Name="CARI_TEL" ColumnName="CARI_TEL" />
+                <ScalarProperty Name="CARI_KODU" ColumnName="CARI_KODU" />
+                <ScalarProperty Name="CARI_ISIM" ColumnName="CARI_ISIM" />
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="CARI_ID" ColumnName="CARI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKULLANP">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLKULLANP">
+              <MappingFragment StoreEntitySet="TBLKULLANP">
+                <ScalarProperty Name="I_YEDEK2" ColumnName="I_YEDEK2" />
+                <ScalarProperty Name="I_YEDEK1" ColumnName="I_YEDEK1" />
+                <ScalarProperty Name="D_YEDEK2" ColumnName="D_YEDEK2" />
+                <ScalarProperty Name="D_YEDEK1" ColumnName="D_YEDEK1" />
+                <ScalarProperty Name="F_YEDEK2" ColumnName="F_YEDEK2" />
+                <ScalarProperty Name="F_YEDEK1" ColumnName="F_YEDEK1" />
+                <ScalarProperty Name="S_YEDEK5" ColumnName="S_YEDEK5" />
+                <ScalarProperty Name="S_YEDEK4" ColumnName="S_YEDEK4" />
+                <ScalarProperty Name="S_YEDEK3" ColumnName="S_YEDEK3" />
+                <ScalarProperty Name="S_YEDEK2" ColumnName="S_YEDEK2" />
+                <ScalarProperty Name="S_YEDEK1" ColumnName="S_YEDEK1" />
+                <ScalarProperty Name="DUZELTMEYAPANKULL" ColumnName="DUZELTMEYAPANKULL" />
+                <ScalarProperty Name="DUZELTMETARIHI" ColumnName="DUZELTMETARIHI" />
+                <ScalarProperty Name="KAYITYAPANKULL" ColumnName="KAYITYAPANKULL" />
+                <ScalarProperty Name="KAYITTARIHI" ColumnName="KAYITTARIHI" />
+                <ScalarProperty Name="SIFRESIFIRLAMA_CODE" ColumnName="SIFRESIFIRLAMA_CODE" />
+                <ScalarProperty Name="AKTIVASYON_LINK" ColumnName="AKTIVASYON_LINK" />
+                <ScalarProperty Name="ISVALID" ColumnName="ISVALID" />
+                <ScalarProperty Name="TEKLIF_SERI" ColumnName="TEKLIF_SERI" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="YETKI" ColumnName="YETKI" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="KULL_ADI" ColumnName="KULL_ADI" />
+                <ScalarProperty Name="KULL_KODU" ColumnName="KULL_KODU" />
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSTSABIT">
+            <EntityTypeMapping TypeName="eteklifn_netModel.TBLSTSABIT">
+              <MappingFragment StoreEntitySet="TBLSTSABIT">
+                <ScalarProperty Name="I_YEDEK3" ColumnName="I_YEDEK3" />
+                <ScalarProperty Name="I_YEDEK2" ColumnName="I_YEDEK2" />
+                <ScalarProperty Name="I_YEDEK1" ColumnName="I_YEDEK1" />
+                <ScalarProperty Name="D_YEDEK3" ColumnName="D_YEDEK3" />
+                <ScalarProperty Name="D_YEDEK2" ColumnName="D_YEDEK2" />
+                <ScalarProperty Name="D_YEDEK1" ColumnName="D_YEDEK1" />
+                <ScalarProperty Name="F_YEDEK3" ColumnName="F_YEDEK3" />
+                <ScalarProperty Name="F_YEDEK2" ColumnName="F_YEDEK2" />
+                <ScalarProperty Name="F_YEDEK1" ColumnName="F_YEDEK1" />
+                <ScalarProperty Name="S_YEDEK5" ColumnName="S_YEDEK5" />
+                <ScalarProperty Name="S_YEDEK4" ColumnName="S_YEDEK4" />
+                <ScalarProperty Name="S_YEDEK3" ColumnName="S_YEDEK3" />
+                <ScalarProperty Name="S_YEDEK2" ColumnName="S_YEDEK2" />
+                <ScalarProperty Name="S_YEDEK1" ColumnName="S_YEDEK1" />
+                <ScalarProperty Name="DUZELTMEYAPANKULL" ColumnName="DUZELTMEYAPANKULL" />
+                <ScalarProperty Name="DUZELTMETARIHI" ColumnName="DUZELTMETARIHI" />
+                <ScalarProperty Name="KAYITYAPANKULL" ColumnName="KAYITYAPANKULL" />
+                <ScalarProperty Name="KAYITTARIHI" ColumnName="KAYITTARIHI" />
+                <ScalarProperty Name="PASIF" ColumnName="PASIF" />
+                <ScalarProperty Name="BARKOD3" ColumnName="BARKOD3" />
+                <ScalarProperty Name="BARKOD2" ColumnName="BARKOD2" />
+                <ScalarProperty Name="BARKOD1" ColumnName="BARKOD1" />
+                <ScalarProperty Name="KDV_ORANI" ColumnName="KDV_ORANI" />
+                <ScalarProperty Name="OLCU_BR1" ColumnName="OLCU_BR1" />
+                <ScalarProperty Name="TEKLIFMIKTAR" ColumnName="TEKLIFMIKTAR" />
+                <ScalarProperty Name="DOV_SATIS_FIAT" ColumnName="DOV_SATIS_FIAT" />
+                <ScalarProperty Name="SAT_DOV_TIP" ColumnName="SAT_DOV_TIP" />
+                <ScalarProperty Name="ALIS_FIAT4" ColumnName="ALIS_FIAT4" />
+                <ScalarProperty Name="ALIS_FIAT3" ColumnName="ALIS_FIAT3" />
+                <ScalarProperty Name="ALIS_FIAT2" ColumnName="ALIS_FIAT2" />
+                <ScalarProperty Name="ALIS_FIAT1" ColumnName="ALIS_FIAT1" />
+                <ScalarProperty Name="SATIS_FIAT4" ColumnName="SATIS_FIAT4" />
+                <ScalarProperty Name="SATIS_FIAT3" ColumnName="SATIS_FIAT3" />
+                <ScalarProperty Name="SATIS_FIAT2" ColumnName="SATIS_FIAT2" />
+                <ScalarProperty Name="SATIS_FIAT1" ColumnName="SATIS_FIAT1" />
+                <ScalarProperty Name="KOD_5" ColumnName="KOD_5" />
+                <ScalarProperty Name="KOD_4" ColumnName="KOD_4" />
+                <ScalarProperty Name="KOD_3" ColumnName="KOD_3" />
+                <ScalarProperty Name="KOD_2" ColumnName="KOD_2" />
+                <ScalarProperty Name="KOD_1" ColumnName="KOD_1" />
+                <ScalarProperty Name="GRUP_KODU" ColumnName="GRUP_KODU" />
+                <ScalarProperty Name="ING_ADI" ColumnName="ING_ADI" />
+                <ScalarProperty Name="STOK_ADI" ColumnName="STOK_ADI" />
+                <ScalarProperty Name="STOK_KODU" ColumnName="STOK_KODU" />
+                <ScalarProperty Name="SIRKET_ID" ColumnName="SIRKET_ID" />
+                <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

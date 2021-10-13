@@ -1,0 +1,143 @@
+﻿@model TeklifNet.Models.Login
+@{
+                /**/
+
+                ViewBag.Title = "Login";
+                Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" lang="tr" />
+    <title>MUTABAKATCIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    @*<title>Ubold - Responsive Admin Dashboard Template</title>*@
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    @*<ul class="m-t-10 ">
+        <li class="list-inline-item dropdown notification-list">
+            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="false" aria-expanded="false">
+                <i class="fa fa-language fa-2x"></i>
+            </a>
+        </li>
+    </ul>*@
+    <div class="wrapper-page">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="card-box">
+                <div class="panel-heading">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @*<div class="text-danger">@ViewBag.Message</div>*@
+
+                    <div class="login-title text-center">
+                        <h4>
+                            <a href="index.html" class="logo">
+                                <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                            </a>MUTABAKATCIM<br><small>Lütfen <strong>Giriş Yapınız</strong><br><small class="text-danger">@ViewBag.Message</small></small>
+                        </h4>
+                    </div>
+
+                    @*else
+                        {
+
+                            <div class="login-title text-center">
+
+                                <h4>
+                                    <a href="index.html" class="logo">
+                                        <img src="~/assets/images/logo.png" alt="" height="40" class="logo-sm">
+                                    </a>Mutabakatci><br><small>@Deneme.Resource.Please <strong>@Deneme.Resource.LoginHeader</strong></small>
+                                </h4>
+                            </div>
+                        }*@
+                </div>
+
+                <div class="p-20">
+
+                    <form class="form-horizontal m-t-20" action="index.html">
+
+                        <div class="form-group-custom">
+                            <div class="col-12">
+                                @Html.EditorFor(model => model.MAIL, new { htmlAttributes = new { @class = "form-control", @placeholder = "EMail" } })
+                                <i class="bar"></i>
+                                @Html.ValidationMessageFor(model => model.MAIL, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-custom">
+                            <div class="col-12">
+                                @Html.EditorFor(model => model.SIFRE, new { htmlAttributes = new { @class = "form-control", @placeholder = "Şifre" } })
+                                <i class="bar"></i>
+                                @Html.ValidationMessageFor(model => model.SIFRE, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <div class="checkbox checkbox-primary">
+                                    @Html.EditorFor(model => model.RememberMe)
+                                    @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-12">
+                                <button class="btn btn-success btn-block text-uppercase waves-effect waves-light"
+                                        type="submit">
+                                    Giriş Yap
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group m-t-30 m-b-0">
+                            <div class="col-12">
+                                <a href="javascript:void(0)" id="link-register-login">
+                                    <i class="fa fa-lock m-r-5"></i>
+                                    @Html.ActionLink("Şifremi Unuttum", "ForgotPassword", "User")
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p class="text-white">
+                        Kullanıcı hesabım yok <a href="javascript:void(0)" id="link-register-login" class="text-white m-l-5"><b> @Html.ActionLink("Kayıt Ol", "Registration", "User")</b></a>
+                    </p>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script><!-- Popper for Bootstrap -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/jquery.core.js"></script>
+    <script src="~/assets/js/jquery.app.js"></script>
+
+</body>
+</html>
